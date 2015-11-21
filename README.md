@@ -14,7 +14,7 @@
 ## spring mvc
 日志使用sl4j logback
 
-错误
+	错误
 		maven 项目出现 java.lang.ClassNotFoundException: org.springframework.web.context.ContextLoaderListener
 		http://www.cnblogs.com/zhouyalei/archive/2011/11/30/2268606.html
 		.项目根目录下的.classpath,找到 
@@ -27,7 +27,7 @@
 
 
 
-数据库连接mysql
+	数据库连接mysql
 		<!-- mysql -->
 		<dependency>
 			<groupId>mysql</groupId>
@@ -37,7 +37,7 @@
 
 
 ## jpa
-连接池 c3p0
+	连接池 c3p0
 	<!--spring data jpa -->
 		<dependency>
 			<groupId>org.springframework.data</groupId>
