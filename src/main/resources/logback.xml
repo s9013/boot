@@ -44,7 +44,7 @@
 
 
 	<!-- 日志输出级别 -->
-	<root level="INFO">
+	<root level="DEBUG">
 		<appender-ref ref="DB" />
 		<appender-ref ref="STDOUT" />
 		<appender-ref ref="FILE" />

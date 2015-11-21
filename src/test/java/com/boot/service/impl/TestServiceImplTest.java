@@ -14,6 +14,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.boot.entity.jpa.JpaTestEntity;
+import com.boot.entity.mybatis.MybatisTestEntity;
 import com.boot.service.iface.TestService;
 
 /** 
@@ -24,7 +25,8 @@ import com.boot.service.iface.TestService;
 */
 @RunWith(SpringJUnit4ClassRunner.class) 
 @ContextConfiguration(locations={ "classpath:META-INF/spring/applicationContext.xml", 
-		"classpath:META-INF/spring/applicationContext-jpa.xml"})
+		"classpath:META-INF/spring/applicationContext-jpa.xml",
+		"classpath:META-INF/spring/applicationContext-mybatis.xml"})
 public class TestServiceImplTest {
 
 	private Logger logger = LoggerFactory.getLogger(TestServiceImplTest.class); 
@@ -44,5 +46,12 @@ public class TestServiceImplTest {
 		logger.info(list.toString());
 	}
 
+	@Test
+	public void testMybatis() {
+		List<MybatisTestEntity> list = testService.testMybatis();
+		logger.info(list.toString());
+	}
+	
+	
 }
 

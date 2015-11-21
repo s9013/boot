@@ -3,6 +3,7 @@ package com.boot.service.iface;
 import java.util.List;
 
 import com.boot.entity.jpa.JpaTestEntity;
+import com.boot.entity.mybatis.MybatisTestEntity;
 
 /** 
 * @ClassName: 		TestService 
@@ -23,6 +24,12 @@ public interface TestService {
 	 * @return
 	 */
 	public List<JpaTestEntity> testJpa();
+	
+	/**
+	 * test mybatis
+	 * @return
+	 */
+	public List<MybatisTestEntity> testMybatis();
 	
 }
 

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.boot.entity.jpa.JpaTestEntity;
+import com.boot.entity.mybatis.MybatisTestEntity;
 import com.boot.service.iface.TestService;
 
 /** 
@@ -34,10 +35,26 @@ public class TestController {
 	}
 	
 	
+	/**
+	 * 测试jpa
+	 * @return
+	 */
 	@RequestMapping(value="testJpa")
 	public List<JpaTestEntity> testJpa(){
 		logger.info("test jpa start>>>");
 		List<JpaTestEntity> list = testService.testJpa();
+		logger.debug(list.toString());
+		return list;
+	}
+	
+	/**
+	 * 测试mybatis
+	 * @return
+	 */
+	@RequestMapping(value="testMybatis")
+	public List<MybatisTestEntity> testMybatis(){
+		logger.info("test mybatis start>>>");
+		List<MybatisTestEntity> list = testService.testMybatis();
 		logger.debug(list.toString());
 		return list;
 	}

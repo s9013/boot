@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.boot.entity.jpa.JpaTestEntity;
+import com.boot.entity.mybatis.MybatisTestEntity;
 import com.boot.repository.jpa.JpaTestRepository;
+import com.boot.repository.mybatis.MybatisTestRepository;
 import com.boot.service.iface.TestService;
 
 
@@ -23,6 +25,8 @@ public class TestServiceImpl implements TestService {
 	@Autowired
 	JpaTestRepository jpaTestRepository;
 	
+	@Autowired
+	MybatisTestRepository mybatisTestRepository;
 	
 	public String test() {
 		return "Hello world,this is service!";
@@ -30,6 +34,11 @@ public class TestServiceImpl implements TestService {
 
 	public List<JpaTestEntity> testJpa() {
 		List<JpaTestEntity> list = jpaTestRepository.findAll();
+		return list;
+	}
+
+	public List<MybatisTestEntity> testMybatis() {
+		List<MybatisTestEntity> list = mybatisTestRepository.find();
 		return list;
 	}
 
