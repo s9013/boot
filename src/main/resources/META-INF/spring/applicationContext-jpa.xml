@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/tx
+            http://www.springframework.org/schema/tx/spring-tx.xsd
+            http://www.springframework.org/schema/data/jpa
+            http://www.springframework.org/schema/data/jpa/spring-jpa.xsd ">
+
+
+	<bean id="mysqlDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">  
+        <property name="driverClass" value="${database.driver}" />  
+        <property name="jdbcUrl" value="${database.url}" />  
+        <property name="user" value="${database.user}" />  
+        <property name="password" value="${database.password}" />  
+        <property name="minPoolSize" value="${database.minPoolSize}" />  
+        <property name="maxPoolSize" value="${database.maxPoolSize}" />  
+        <property name="maxIdleTime" value="${database.maxIdleTime}" />  
+        <property name="acquireIncrement" value="${database.acquireIncrement}" />  
+        <property name="idleConnectionTestPeriod" value="${database.idleConnectionTestPeriod}" />  
+    </bean>  
+
+
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="mysqlDataSource"></property>
+         <property name="packagesToScan" value="com.boot.entity.jpa"></property>
+         <property name="persistenceUnitName" value="myJPA"></property>
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+				<property name="showSql" value="true" />
+				<property name="database" value="MYSQL" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<jpa:repositories base-package="com.boot.repository.jpa" />
+	
+
+</beans>
