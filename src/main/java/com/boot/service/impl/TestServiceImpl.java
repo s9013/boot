@@ -3,9 +3,11 @@ package com.boot.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
 import com.boot.entity.jpa.JpaTestEntity;
+import com.boot.entity.mongo.MongoTestEntity;
 import com.boot.entity.mybatis.MybatisTestEntity;
 import com.boot.repository.jpa.JpaTestRepository;
 import com.boot.repository.mybatis.MybatisTestRepository;
@@ -30,6 +32,10 @@ public class TestServiceImpl implements TestService {
 	
 	@Autowired
 	MybatisTestRepository mybatisTestRepository;
+	
+	@Autowired
+	MongoTemplate mongoTemplate;
+	
 	
 	public String test() {
 		return "Hello world,this is service!";
@@ -56,6 +62,11 @@ public class TestServiceImpl implements TestService {
 		pageVo.setData(list);
 		
 		return pageVo;
+	}
+
+	public List<MongoTestEntity> testMongodb() {
+		List<MongoTestEntity> list = mongoTemplate.findAll(MongoTestEntity.class);
+		return list;
 	}
 
 }

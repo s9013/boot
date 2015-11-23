@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.boot.entity.jpa.JpaTestEntity;
+import com.boot.entity.mongo.MongoTestEntity;
 import com.boot.entity.mybatis.MybatisTestEntity;
 import com.boot.service.iface.TestService;
 import com.boot.vo.common.PageInputVo;
@@ -70,6 +71,18 @@ public class TestController {
 	public PageOupterVo<MybatisTestEntity> testMybatisPage(@RequestBody PageInputVo pageInputVo){
 		logger.info("test mybatis page start>>>");
 		PageOupterVo<MybatisTestEntity> result = testService.testMybatisPage(pageInputVo);
+		logger.debug(result.toString());
+		return result;
+	}
+	
+	/**
+	 * 测试mongodb
+	 * @return
+	 */
+	@RequestMapping(value="testMongodb")
+	public List<MongoTestEntity> testMongodb(){
+		logger.info("test mongodb start>>>");
+		List<MongoTestEntity> result = testService.testMongodb();
 		logger.debug(result.toString());
 		return result;
 	}

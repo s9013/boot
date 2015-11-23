@@ -3,6 +3,7 @@ package com.boot.service.iface;
 import java.util.List;
 
 import com.boot.entity.jpa.JpaTestEntity;
+import com.boot.entity.mongo.MongoTestEntity;
 import com.boot.entity.mybatis.MybatisTestEntity;
 import com.boot.vo.common.PageInputVo;
 import com.boot.vo.common.PageOupterVo;
@@ -38,6 +39,13 @@ public interface TestService {
 	 * @return
 	 */
 	public PageOupterVo<MybatisTestEntity> testMybatisPage(PageInputVo pageInputVo);
+	
+	
+	/**
+	 * test mongodb
+	 * @return
+	 */
+	public List<MongoTestEntity> testMongodb();
 	
 }
 

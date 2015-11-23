@@ -14,6 +14,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.boot.entity.jpa.JpaTestEntity;
+import com.boot.entity.mongo.MongoTestEntity;
 import com.boot.entity.mybatis.MybatisTestEntity;
 import com.boot.service.iface.TestService;
 import com.boot.vo.common.PageInputVo;
@@ -28,7 +29,8 @@ import com.boot.vo.common.PageOupterVo;
 @RunWith(SpringJUnit4ClassRunner.class) 
 @ContextConfiguration(locations={ "classpath:META-INF/spring/applicationContext.xml", 
 		"classpath:META-INF/spring/applicationContext-jpa.xml",
-		"classpath:META-INF/spring/applicationContext-mybatis.xml"})
+		"classpath:META-INF/spring/applicationContext-mybatis.xml",
+		"classpath:META-INF/spring/applicationContext-mongo.xml"})
 public class TestServiceImplTest {
 
 	private Logger logger = LoggerFactory.getLogger(TestServiceImplTest.class); 
@@ -60,6 +62,12 @@ public class TestServiceImplTest {
 		PageInputVo pageInputVo = new PageInputVo(2, 5);
 		PageOupterVo<MybatisTestEntity> vo = testService.testMybatisPage(pageInputVo);
 		logger.info(vo.toString());
+	}
+	
+	@Test
+	public void testMongodb(){
+		List<MongoTestEntity> list = testService.testMongodb();
+		logger.info(list.toString());
 	}
 }
 

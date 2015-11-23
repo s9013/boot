@@ -71,5 +71,14 @@
 			<version>1.2.3</version>
 		</dependency>
 
-		搞定 分页还没有
+		搞定 分页
+		
+##　spring data mongodb
+	
+		<!--spring data mongodb -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-mongodb</artifactId>
+			<version>1.8.0.RELEASE</version>
+		</dependency>
 		
