@@ -5,12 +5,15 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.boot.entity.jpa.JpaTestEntity;
 import com.boot.entity.mybatis.MybatisTestEntity;
 import com.boot.service.iface.TestService;
+import com.boot.vo.common.PageInputVo;
+import com.boot.vo.common.PageOupterVo;
 
 /** 
 * @ClassName: 		TestController 
@@ -58,4 +61,17 @@ public class TestController {
 		logger.debug(list.toString());
 		return list;
 	}
+	
+	/**
+	 * 测试mybatis 分页
+	 * @return
+	 */
+	@RequestMapping(value="testMybatisPage")
+	public PageOupterVo<MybatisTestEntity> testMybatisPage(@RequestBody PageInputVo pageInputVo){
+		logger.info("test mybatis page start>>>");
+		PageOupterVo<MybatisTestEntity> result = testService.testMybatisPage(pageInputVo);
+		logger.debug(result.toString());
+		return result;
+	}
+
 }

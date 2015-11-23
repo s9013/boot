@@ -10,6 +10,9 @@ import com.boot.entity.mybatis.MybatisTestEntity;
 import com.boot.repository.jpa.JpaTestRepository;
 import com.boot.repository.mybatis.MybatisTestRepository;
 import com.boot.service.iface.TestService;
+import com.boot.vo.common.MybatisPage;
+import com.boot.vo.common.PageInputVo;
+import com.boot.vo.common.PageOupterVo;
 
 
 
@@ -40,6 +43,19 @@ public class TestServiceImpl implements TestService {
 	public List<MybatisTestEntity> testMybatis() {
 		List<MybatisTestEntity> list = mybatisTestRepository.find();
 		return list;
+	}
+
+	public PageOupterVo<MybatisTestEntity> testMybatisPage(PageInputVo pageInputVo) {
+		MybatisPage<MybatisTestEntity> mybatisPage = new MybatisPage<MybatisTestEntity>();
+		mybatisPage.setPageNo(pageInputVo.getPage());
+		mybatisPage.setPageSize(pageInputVo.getPageSize());
+		List<MybatisTestEntity> list = mybatisTestRepository.findAndPage(mybatisPage);
+		
+		PageOupterVo<MybatisTestEntity> pageVo = new PageOupterVo<MybatisTestEntity>();
+		pageVo.setCount(mybatisPage.getTotalRecord());
+		pageVo.setData(list);
+		
+		return pageVo;
 	}
 
 }

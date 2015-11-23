@@ -10,3 +10,9 @@ CREATE TABLE `user` (
 
 
 INSERT INTO `user` VALUES (1,'java');
+insert into user (name) values ('tom');
+insert into user (name) values ('mike');
+insert into user (name) values ('owen');
+insert into user (name) values ('jack');
+insert into user (name) values ('eddy');
+insert into user (name) values ('jerry');

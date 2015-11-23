@@ -16,6 +16,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.boot.entity.jpa.JpaTestEntity;
 import com.boot.entity.mybatis.MybatisTestEntity;
 import com.boot.service.iface.TestService;
+import com.boot.vo.common.PageInputVo;
+import com.boot.vo.common.PageOupterVo;
 
 /** 
 * @ClassName: 		TestServiceImplTest 
@@ -53,5 +55,11 @@ public class TestServiceImplTest {
 	}
 	
 	
+	@Test
+	public void testMybatisPage() {
+		PageInputVo pageInputVo = new PageInputVo(2, 5);
+		PageOupterVo<MybatisTestEntity> vo = testService.testMybatisPage(pageInputVo);
+		logger.info(vo.toString());
+	}
 }
 

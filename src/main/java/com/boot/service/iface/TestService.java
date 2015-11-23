@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.boot.entity.jpa.JpaTestEntity;
 import com.boot.entity.mybatis.MybatisTestEntity;
+import com.boot.vo.common.PageInputVo;
+import com.boot.vo.common.PageOupterVo;
 
 /** 
 * @ClassName: 		TestService 
@@ -30,6 +32,12 @@ public interface TestService {
 	 * @return
 	 */
 	public List<MybatisTestEntity> testMybatis();
+	
+	/**
+	 * test mybatis page
+	 * @return
+	 */
+	public PageOupterVo<MybatisTestEntity> testMybatisPage(PageInputVo pageInputVo);
 	
 }
 

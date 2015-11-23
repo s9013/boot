@@ -4,7 +4,7 @@
 <mapper namespace="com.boot.repository.mybatis.MybatisTestRepository">
 
 
-	<select id="find" resultType="com.boot.entity.mybatis.MybatisTestEntity">
+	<select id="find" resultType="MybatisTestEntity">
 		select 
         	id 									id, 
         	name 								name 
@@ -12,5 +12,12 @@
              user
 	</select>
 	
+	<select id="findAndPage" resultType="MybatisTestEntity"  parameterType="com.boot.vo.common.MybatisPage" >
+		select 
+        	id 									id, 
+        	name 								name 
+        from 
+             user
+	</select>
 	
 </mapper> 
