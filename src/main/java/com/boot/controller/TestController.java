@@ -30,9 +30,9 @@ public class TestController {
 	@Autowired
 	TestService testService;
 	
-	@RequestMapping(value="test")
-	public String test(){
-		logger.info("test>>>");
+	@RequestMapping(value="testMvc")
+	public String testMvc(){
+		logger.info("test mvc>>>");
 		String str = testService.test();
 		logger.debug(str);
 		return str;
