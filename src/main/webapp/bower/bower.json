@@ -1,0 +1,23 @@
+{
+  "name": "webapp",
+  "version": "0.0.0",
+  "homepage": "https://github.com/s9013/boot",
+  "authors": [
+    "Jay"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.5",
+    "requirejs": "~2.1.22"
+  }
+}
