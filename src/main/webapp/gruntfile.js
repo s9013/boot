@@ -18,7 +18,7 @@ module.exports = function(grunt) {
       server:{
         options:{
            open:true,// auto open default bowser
-           base:['app']
+           base:['']
         }
       }
     },
